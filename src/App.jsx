@@ -1,73 +1,66 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // 💡 IMPORTANTE para redirecciones
-import reactLogo from './assets/react.svg';
+import { useNavigate } from 'react-router-dom';
+import './App.css'; // 🎨 estilos
+import reactLogo from './assets/react.svg'; // 🔵 si no los usas, puedes quitar
 import viteLogo from '/vite.svg';
-import './App.css';
-import Conversor from './Conversor.jsx';
 
 function App() {
   const [usuario, setUsuario] = useState("");
   const [clave, setClave] = useState("");
   const [logueado, setLogueado] = useState(false);
   const [mensaje, setMensaje] = useState("");
-  const navigate = useNavigate(); // ⚡ Necesario para redireccionar
+  const navigate = useNavigate();
 
-  // 🔑 Manejadores de inputs
-  function cambiarUsuario(evento) {
-    setUsuario(evento.target.value);
-  }
-
-  function cambiarClave(evento) {
-    setClave(evento.target.value);
-  }
+  const cambiarUsuario = (e) => setUsuario(e.target.value);
+  const cambiarClave = (e) => setClave(e.target.value);
 
   // 🔐 Login manual
   async function ingresar() {
-    const peticion = await fetch("http://localhost:3000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      credentials: "include",
-      body: JSON.stringify({ usuario, clave })
-    });
+    try {
+      const respuesta = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ usuario, clave })
+      });
 
-    if (peticion.ok) {
+      if (!respuesta.ok) {
+        return alert("Usuario o clave incorrectos");
+      }
+
       setMensaje("✅ Inicio de sesión exitoso. ¡Bienvenido!");
       setLogueado(true);
-      navigate("/conversor"); // 👉 Redirige automáticamente si inicia sesión
-    } else {
-      alert("Usuario o clave incorrectos");
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+      alert("Error de conexión con el servidor");
     }
   }
 
-  // 🔎 Validación automática de sesión al cargar
+  // 🔎 Validar sesión al montar
   useEffect(() => {
     async function validarSesion() {
-      const res = await fetch("http://localhost:3000/validar", { credentials: "include" });
-      if (res.ok) {
-        setLogueado(true);
-      } else {
-        setLogueado(false);
+      try {
+        const res = await fetch("http://localhost:3000/validar", {
+          credentials: "include"
+        });
+        setLogueado(res.ok);
+      } catch (error) {
+        console.error("Error al validar sesión:", error);
       }
     }
     validarSesion();
   }, []);
 
-  // 🚀 Redirección si ya está logueado
+  // 🚀 Redirigir si ya está logueado
   useEffect(() => {
     if (logueado) {
       navigate("/conversor");
     }
-  }, [logueado]);
+  }, [logueado, navigate]);
 
   return (
-    <>
-      {mensaje && (
-        <div className="banner">
-          {mensaje}
-        </div>
-      )}
+    <div className="App">
+      {mensaje && <div className="banner">{mensaje}</div>}
 
       <h1>Inicio de Sesión</h1>
       <input
@@ -76,6 +69,7 @@ function App() {
         value={usuario}
         onChange={cambiarUsuario}
         placeholder="Usuario"
+        autoFocus
       />
       <input
         type="password"
@@ -85,7 +79,7 @@ function App() {
         placeholder="Clave"
       />
       <button onClick={ingresar}>Ingresar</button>
-    </>
+    </div>
   );
 }
 
