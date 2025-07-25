@@ -18,20 +18,21 @@ function App() {
   }
 
   async function ingresar() {
-    const peticion = await fetch("http://localhost:3000/login?usuario=" + usuario + "&clave=" + clave, { credentials: 'include' })
-    if (peticion.ok) {
-      setlogueado(true)
-    } else {
-      alert("Usuario o clave incorrectos")
-    }
-    // if (usuario === "admin" && clave === "admin") {
-    //   console.log("Usuario y clave correctos")
-    //   alert("Bienvenido")
-    //   setlogueado(true)
-    // } else {
-    //   alert("Usuario o clave incorrectos")
-    // }
+  const peticion = await fetch("http://localhost:3000/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    credentials: "include",
+    body: JSON.stringify({ usuario, clave })
+  })
+
+  if (peticion.ok) {
+    setlogueado(true)
+  } else {
+    alert("Usuario o clave incorrectos")
   }
+}
 
   async function validar() {
     const peticion = await fetch("http://localhost:3000/validar", { credentials: 'include' })
