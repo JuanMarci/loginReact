@@ -41,7 +41,7 @@ function App() {
   }
 
   if (logueado) {
-    return <Conversor/>  
+    return <Conversor/> 
   }
 
   return (
