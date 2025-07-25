@@ -40,10 +40,6 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    validar()
-  }, [])
-
   if (logueado) {
     return <Conversor/>  
   }
