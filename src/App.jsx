@@ -8,6 +8,7 @@ function App() {
   const [usuario, setUsuario] = useState("")
   const [clave, setClave] = useState("")
   const [logueado, setlogueado] = useState(false)
+  const [mensaje, setMensaje] = useState("");
 
   function cambiarUsuario(evento) {
     setUsuario(evento.target.value)
@@ -28,6 +29,7 @@ function App() {
   })
 
   if (peticion.ok) {
+    setMensaje("✅ Inicio de sesión exitoso. ¡Bienvenido!");
     setlogueado(true)
   } else {
     alert("Usuario o clave incorrectos")
@@ -49,13 +51,33 @@ function App() {
   }
 
   return (
-    <>
+  <>
+    {mensaje && (
+      <div className="banner">
+        {mensaje}
+      </div>
+    )}
+
+{/* Banner styles moved to App.css */}
+
     <h1>Inicio de Sesión</h1>
-      <input type="text" name="usuario" value={usuario} onChange={cambiarUsuario} placeholder="Usuario" />
-      <input type="password" name="clave" value={clave} onChange={cambiarClave} placeholder="Clave" />
-      <button onClick={ingresar}>Ingresar</button>   
-    </>
-  )
+    <input
+      type="text"
+      name="usuario"
+      value={usuario}
+      onChange={cambiarUsuario}
+      placeholder="Usuario"
+    />
+    <input
+      type="password"
+      name="clave"
+      value={clave}
+      onChange={cambiarClave}
+      placeholder="Clave"
+    />
+    <button onClick={ingresar}>Ingresar</button>
+  </>
+)
 }
 
 export default App
