@@ -25,9 +25,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Login setlogueado={setlogueado} />} />
         <Route path="/registro" element={<Registro />} />
-        <Route
-          path="/conversor"
-          element={logueado ? <Conversor /> : <Navigate to="/" />}
+        <Route path="/conversor" element={<Conversor />} />
+        <Route path="/conversor" element={logueado ? <Conversor /> : <Navigate to="/" />}
         />
       </Routes>
     </BrowserRouter>
