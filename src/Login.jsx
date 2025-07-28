@@ -48,6 +48,10 @@ function Login({ setlogueado }) {
           <input type="password" value={clave} onChange={cambiarClave} placeholder="Clave" />
         </div>
         <button onClick={ingresar}>Ingresar</button>
+
+        <button onClick={() => navigate('/registro')} className="registroBtn">
+          ¿No tienes cuenta? Regístrate
+        </button>
       </div>
     </div>
   );
