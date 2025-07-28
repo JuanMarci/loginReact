@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Conversor from './Conversor.jsx';
+import { FaUser, FaLock } from 'react-icons/fa';
+
 
 function App() {
   const [usuario, setUsuario] = useState('');
@@ -54,20 +56,28 @@ function App() {
       <div className="formulario">
         {mensaje && <div className="banner">{mensaje}</div>}
         <h2>Inicio de Sesión</h2>
-        <input
-          type="text"
-          name="usuario"
-          value={usuario}
-          onChange={cambiarUsuario}
-          placeholder="Usuario"
-        />
-        <input
-          type="password"
-          name="clave"
-          value={clave}
-          onChange={cambiarClave}
-          placeholder="Clave"
-        />
+        <div className="inputContainer">
+  <FaUser className="icon" />
+  <input
+    type="text"
+    name="usuario"
+    value={usuario}
+    onChange={cambiarUsuario}
+    placeholder="Usuario"
+  />
+</div>
+
+<div className="inputContainer">
+  <FaLock className="icon" />
+  <input
+    type="password"
+    name="clave"
+    value={clave}
+    onChange={cambiarClave}
+    placeholder="Clave"
+  />
+</div>
+
         <button onClick={ingresar}>Ingresar</button>
       </div>
     </div>
