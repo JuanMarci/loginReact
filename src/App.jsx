@@ -1,42 +1,14 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Conversor from './Conversor.jsx';
-import { FaUser, FaLock } from 'react-icons/fa';
-
+import Login from './Login.jsx';
 
 function App() {
-  const [usuario, setUsuario] = useState('');
-  const [clave, setClave] = useState('');
   const [logueado, setlogueado] = useState(false);
-  const [mensaje, setMensaje] = useState('');
 
   useEffect(() => {
     validar();
   }, []);
-
-  function cambiarUsuario(evento) {
-    setUsuario(evento.target.value);
-  }
-
-  function cambiarClave(evento) {
-    setClave(evento.target.value);
-  }
-
-  async function ingresar() {
-    const peticion = await fetch('http://localhost:3000/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ usuario, clave }),
-    });
-
-    if (peticion.ok) {
-      setMensaje('✅ Inicio de sesión exitoso. ¡Bienvenido!');
-      setlogueado(true);
-    } else {
-      alert('Usuario o clave incorrectos');
-    }
-  }
 
   async function validar() {
     const peticion = await fetch('http://localhost:3000/validar', {
@@ -47,40 +19,16 @@ function App() {
     }
   }
 
-  if (logueado) {
-    return <Conversor />;
-  }
-
   return (
-    <div className="container">
-      <div className="formulario">
-        {mensaje && <div className="banner">{mensaje}</div>}
-        <h2>Inicio de Sesión</h2>
-        <div className="inputContainer">
-  <FaUser className="icon" />
-  <input
-    type="text"
-    name="usuario"
-    value={usuario}
-    onChange={cambiarUsuario}
-    placeholder="Usuario"
-  />
-</div>
-
-<div className="inputContainer">
-  <FaLock className="icon" />
-  <input
-    type="password"
-    name="clave"
-    value={clave}
-    onChange={cambiarClave}
-    placeholder="Clave"
-  />
-</div>
-
-        <button onClick={ingresar}>Ingresar</button>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login setlogueado={setlogueado} />} />
+        <Route
+          path="/conversor"
+          element={logueado ? <Conversor /> : <Navigate to="/" />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
