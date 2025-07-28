@@ -1,3 +1,4 @@
+/* Estilo global para inputs y botón */
 input, button {
   display: block;
   margin: 1rem auto;
@@ -6,7 +7,7 @@ input, button {
   width: 60%;
 }
 
-/* Botón con estilo atractivo */
+/* Estilo del botón */
 button {
   background-color: #646cff;
   color: white;
@@ -15,7 +16,7 @@ button {
   cursor: pointer;
 }
 
-/* Mensaje de sesión iniciada o error */
+/* Estilo del mensaje */
 .banner {
   margin: 1rem auto;
   padding: 1rem;
@@ -26,21 +27,21 @@ button {
   text-align: center;
 }
 
-/* Contenedor principal para centrar todo */
+/* Contenedor centrado */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ocupa toda la pantalla */
+  height: 100vh;
   background-color: #f5f5f5;
 }
 
-/* Si usas una envoltura interna tipo formulario */
+/* Bloque visual del formulario */
 .formulario {
   background-color: white;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
   width: 100%;
   max-width: 400px;
