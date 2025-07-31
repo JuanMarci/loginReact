@@ -1,2 +1,0 @@
-Link Repositorio
-https://github.com/JuanMarci/loginReact.git
