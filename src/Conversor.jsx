@@ -40,7 +40,7 @@ function Conversor() {
 
   return (
     <div className="contenedor-conversor">
-      <h1>Conversor TTS y STT</h1>
+      <h1 className="titulo-animado">Conversor TTS y STT</h1>
 
       <section>
         <h3>Conversor de texto a voz</h3>
