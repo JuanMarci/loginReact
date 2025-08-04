@@ -142,6 +142,22 @@ textarea {
   text-align: center;
   margin-bottom: 1.5rem;
 }
+.login-contenedor {
+  background-color: #ffffff; /* blanco puro */
+  color: #1b1b1b; /* texto oscuro */
+}
+
+.login-formulario input {
+  background-color: #f8f8f8;
+  border: 1px solid #888; /* mejor visibilidad */
+  color: #1b1b1b;
+}
+
+.boton-ingresar {
+  background-color: #1565c0; /* azul oscuro */
+  color: #ffffff;
+}
+
 
 
 
