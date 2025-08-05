@@ -40,7 +40,7 @@ function Conversor() {
 
   return (
     <div className="contenedor-conversor">
-      <h1 className="titulo-animado">Conversor TTS y STT</h1>
+      <h1 className="titulo-animado">Conversor</h1>
 
       <section>
         <h3>Conversor de texto a voz</h3>
@@ -54,7 +54,7 @@ function Conversor() {
       </section>
 
       <section>
-        <h3>Dictado de voz a texto</h3>
+        <h3>Conversor de voz a texto</h3>
         <button onClick={grabarVozAtexto} disabled={grabando}>
           {grabando ? 'Grabando...' : 'Iniciar dictado'}
         </button>
@@ -72,7 +72,7 @@ function Conversor() {
           <textarea
             value={vozAtexto}
             onChange={e => setVozAtexto(e.target.value)}
-            placeholder="Tu texto dictado aparecerá aquí..."
+            placeholder="Tu dictado aparecerá aquí..."
             rows={15}
           />
         )}
