@@ -1,0 +1,40 @@
+.dictado-container {
+  border: 2px solid transparent;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: border 0.3s ease;
+}
+
+.dictado-container.activo {
+  border: 2px solid #00ffcc;
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+.mic {
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.mic.animado {
+  animation: pulso 1s infinite;
+}
+
+@keyframes pulso {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.transcript {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #555;
+}
+.resultado {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f4f4f4;
+  border-radius: 8px;
+  min-height: 100px;
+  white-space: pre-wrap;
+}
