@@ -18,7 +18,7 @@ button {
 }
 
 button:hover {
-  background-color: #535bf2;
+  background-color: #333788;
 }
 
 /* Botón de registro */
@@ -26,12 +26,12 @@ button:hover {
   margin-top: 10px;
   background-color: transparent;
   border: none;
-  color: #007bff;
+  color: #ffffff;
   cursor: pointer;
   text-decoration: underline;
 }
 .registroBtn:hover {
-  color: #0056b3;
+  color: #bfd7f0;
 }
 
 /* Estilo del mensaje */
@@ -53,11 +53,11 @@ button:hover {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(to right, #e3f2fd, #fce4ec);
+  background: linear-gradient(to right, #b3bac2, #454a4e);
 }
 
 .formulario {
-  background-color: rgb(52, 51, 51);
+  background-color: rgb(44, 43, 43);
   padding: 2.3rem 2rem;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(255, 255, 255, 0.1);
@@ -69,7 +69,7 @@ button:hover {
 .formulario h2 {
   margin-bottom: 1.5rem;
   font-size: 1rem;
-  color: #ffffff;
+  color: #e2d3d3;
   font-family: 'Segoe UI', Montserrat, Geneva, Verdana, sans-serif;
 }
 
@@ -77,10 +77,10 @@ button:hover {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-  border: 1px solid #676767;
+  border: 2px solid #09baec;
   border-radius: 6px;
   padding: 0.6rem;
-  background-color: #676767;
+  background-color: #ffffff;
 }
 
 .inputContainer .icon {
@@ -111,7 +111,7 @@ textarea {
   border: 2px solid #8991f1;
   resize: vertical;
   margin-top: 1rem;
-  background: #767676;
+  background: #282828;
 }
 
 .vista-documento {
@@ -134,11 +134,11 @@ textarea {
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 .titulo-animado {
-  font-size: clamp(2rem, 4vw, 4rem);
+  font-size: cloud(2rem, 4vw, 4rem);
   font-weight: 700;
-  color: #1044c8;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-  animation: entradaTitulo 1s ease-out;
+  color: #f7c38c;
+  text-shadow: 2px 2px 6px rgba(104, 117, 192, 0.3);
+  animation: entradaTitulo 2s ease-out;
   text-align: center;
   margin-bottom: 1.5rem;
 }
@@ -149,7 +149,7 @@ body {
 }
 
 .login-contenedor {
-  background-color: #4f4f4f;
+  background-color: #272727;
   border: 1px solid #81D4FA;
   box-shadow: 0 0 10px rgba(21, 101, 192, 0.2);
 }
