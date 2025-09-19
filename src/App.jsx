@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Conversor from './Speakly.jsx';
+import Speakly from './Speakly.jsx';
 import Login from './Login.jsx';
 import Registro from './Registro.jsx'; // 👈 importa el nuevo componente
 
