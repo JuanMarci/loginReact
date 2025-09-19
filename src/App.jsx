@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Conversor from './Conversor.jsx';
+import Conversor from './Speakly.jsx';
 import Login from './Login.jsx';
 import Registro from './Registro.jsx'; // 👈 importa el nuevo componente
 
@@ -25,8 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login setlogueado={setlogueado} />} />
         <Route path="/registro" element={<Registro />} />
-        <Route path="/conversor" element={<Conversor />} />
-        <Route path="/conversor" element={logueado ? <Conversor /> : <Navigate to="/" />}
+        <Route path="/conversor" element={logueado ? <Speakly /> : <Navigate to="/" />}
         />
       </Routes>
     </BrowserRouter>

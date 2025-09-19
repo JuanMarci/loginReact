@@ -21,6 +21,12 @@ button:hover {
   background-color: #333788;
 }
 
+.titulo-speakly {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
 /* Botón de registro */
 .registroBtn {
   margin-top: 10px;
@@ -124,7 +130,7 @@ textarea {
   line-height: 1.6;
   white-space: pre-wrap;
 }
-.contenedor-conversor {
+.contenedor-speakly {
   background-image: url('./assets/backgrounds/fondo-conversor.jpg');
   background-size: cover;
   background-repeat: no-repeat;

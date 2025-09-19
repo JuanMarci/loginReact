@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 
-function Conversor() {
+function Speakly() {
   const [textoAvoz, setTextoAvoz] = useState("");
   const [vozAtexto, setVozAtexto] = useState("");
   const [grabando, setGrabando] = useState(false);
@@ -38,12 +38,18 @@ function Conversor() {
     navigator.clipboard.writeText(vozAtexto);
   }
 
+  useEffect(() => {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert('Tu navegador no soporta reconocimiento de voz.');
+  }
+}, []);
+
   return (
-    <div className="contenedor-conversor">
-      <h1 className="titulo-animado">Conversor</h1>
+    <div className="contenedor-speakly">
+      <h1 className="Bienvenido-a-Speakly">Speakly</h1>
 
       <section>
-        <h3>Conversor de texto a voz</h3>
+        <h3>Texto a voz con Speakly</h3>
         <input
           type="text"
           id="textoAvoz"
@@ -54,7 +60,7 @@ function Conversor() {
       </section>
 
       <section>
-        <h3>Conversor de voz a texto</h3>
+        <h3>Voz a texto con Speakly</h3>
         <button onClick={grabarVozAtexto} disabled={grabando}>
           {grabando ? 'Grabando...' : 'Iniciar dictado'}
         </button>
@@ -81,4 +87,4 @@ function Conversor() {
   );
 }
 
-export default Conversor;
+export default Speakly;
