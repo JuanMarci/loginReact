@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Speakly from './Speakly'; // Ajusta la ruta si está en otra carpeta
 
 function Speakly() {
   const [textoAvoz, setTextoAvoz] = useState("");
