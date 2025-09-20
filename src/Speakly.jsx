@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import Speakly from './Speakly'; // Solo importa Speakly
+import Speakly from './Speakly'; // ✅ Importa otro componente llamado Speakly
 
 function SpeaklyApp() {
   const [textoAvoz, setTextoAvoz] = useState("");
@@ -82,4 +82,4 @@ function SpeaklyApp() {
   );
 }
 
-export default Speakly;
+export default SpeaklyApp;
