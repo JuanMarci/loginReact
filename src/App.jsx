@@ -1,32 +1,27 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Speakly from './Speakly.jsx';
+import SpeaklyApp from './Speakly.jsx';
 import Login from './Login.jsx';
 import Registro from './Registro.jsx'; // 👈 importa el nuevo componente
 
 function App() {
-  const [logueado, setlogueado] = useState(false);
+  const [usuarioAutenticado, setUsuarioAutenticado] = useState(false);
 
   useEffect(() => {
-    validar();
+    // Aquí podrías verificar si el usuario ya está autenticado
+    const token = localStorage.getItem('token');
+    setUsuarioAutenticado(!!token);
   }, []);
-
-  async function validar() {
-    const peticion = await fetch('http://localhost:3000/validar', {
-      credentials: 'include',
-    });
-    if (peticion.ok) {
-      setlogueado(true);
-    }
-  }
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login setlogueado={setlogueado} />} />
+        <Route path="/" element={
+          usuarioAutenticado ? <SpeaklyApp /> : <Navigate to="/login" />
+        } />
+        <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
-        <Route path="/conversor" element={logueado ? <Speakly /> : <Navigate to="/" />}
-        />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );

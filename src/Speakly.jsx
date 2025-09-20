@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import Speakly from './Speakly'; // Ajusta la ruta si está en otra carpeta
+import Speakly from './Speakly'; // Solo importa Speakly
 
-function Speakly() {
+function SpeaklyApp() {
   const [textoAvoz, setTextoAvoz] = useState("");
   const [vozAtexto, setVozAtexto] = useState("");
   const [grabando, setGrabando] = useState(false);
@@ -38,12 +38,6 @@ function Speakly() {
   function copiarAlPortapapeles() {
     navigator.clipboard.writeText(vozAtexto);
   }
-
-  useEffect(() => {
-  if (!('webkitSpeechRecognition' in window)) {
-    alert('Tu navegador no soporta reconocimiento de voz.');
-  }
-}, []);
 
   return (
     <div className="contenedor-speakly">
