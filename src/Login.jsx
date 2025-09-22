@@ -45,7 +45,7 @@ function Login({ setUsuarioAutenticado }) {
     <div className="container">
       <div className="formulario">
         {mensaje && <div className="banner">{mensaje}</div>}
-        <h2>Inicio de Sesión</h2>
+        <h2>Inicio de Sesión Speakly</h2>
         <div className="inputContainer">
           <FaUser className="icon" />
           <input
