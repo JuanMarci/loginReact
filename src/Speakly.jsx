@@ -87,7 +87,6 @@ return (
     </section>
   </div>
 );
-
 }
 
 export default SpeaklyApp;
