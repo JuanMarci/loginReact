@@ -16,7 +16,7 @@ function Bienvenida() {
       <img src={speaklyLogo} alt="Logo de Speakly" className="logo-bienvenida" />
       <h1 className="titulo-bienvenida">Bienvenido a Speakly</h1>
       <p className="subtitulo-bienvenida">
-        Tu voz a texto, tu texto a voz, exporta tus ideas con estilo.
+        Tu texto a voz, tu voz a texto, ideas con estilo.
       </p>
       <button className="boton-iniciar" onClick={iniciarApp}>
         🚀 Iniciar
