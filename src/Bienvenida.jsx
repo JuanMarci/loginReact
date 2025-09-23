@@ -1,20 +1,30 @@
-import React from 'react';
-import speaklyLogo from './assets/speakly-logo.svg'; // Asegúrate de que la ruta sea correcta
-import './Bienvenida.css'; // Puedes crear estilos personalizados aquí
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import speaklyLogo from './assets/speakly-logo.svg';
+import './Bienvenida.css';
 
 function Bienvenida() {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/app'); // ✅ Redirige automáticamente si ya está autenticado
+    }
+  }, []);
+
   const iniciarApp = () => {
-    navigate('/app'); // Ajusta la ruta según tu estructura
+    const token = localStorage.getItem('token');
+    navigate(token ? '/app' : '/login'); // ✅ Redirige según autenticación
   };
 
   return (
     <div className="bienvenida-container">
       <img src={speaklyLogo} alt="Logo de Speakly" className="logo-bienvenida" />
-      <h1>Bienvenido a Speakly</h1>
-      <p>Convierte tu voz en texto, tu texto en voz, y exporta tus ideas con estilo.</p>
+      <h1 className="titulo-bienvenida">Bienvenido a Speakly</h1>
+      <p className="subtitulo-bienvenida">
+        Tu voz a texto, tu texto a voz, exporta tus ideas con estilo.
+      </p>
       <button className="boton-iniciar" onClick={iniciarApp}>
         🚀 Iniciar
       </button>
@@ -23,3 +33,4 @@ function Bienvenida() {
 }
 
 export default Bienvenida;
+

@@ -5,8 +5,8 @@
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background: linear-gradient(to bottom right, #f0f4ff, #dbeafe);
-  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #435071, #26313f);
+  font-family: 'montserrat', sans-serif;
 }
 
 .logo-bienvenida {
@@ -18,7 +18,7 @@
   margin-top: 2rem;
   padding: 0.75rem 2rem;
   font-size: 1.2rem;
-  background-color: #2563eb;
+  background-color: #305094;
   color: white;
   border: none;
   border-radius: 8px;
@@ -27,5 +27,9 @@
 }
 
 .boton-iniciar:hover {
-  background-color: #1e40af;
+  background-color: #1e2439;
+}
+.titulo-bienvenida {
+  font-size: 1.5rem; /* Puedes probar con 1.5rem, 24px, etc. */
+  font-weight: 600;
 }
