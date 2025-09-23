@@ -5,7 +5,7 @@
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background: linear-gradient(to bottom right, #f0f4ff, #dbeafe);
+  background: linear-gradient(to bottom right, #282e3c, #2f3845);
   font-family: 'Segoe UI', sans-serif;
   padding: 2rem;
 }
@@ -23,14 +23,14 @@
 
 .subtitulo-bienvenida {
   font-size: 1.2rem;
-  color: #374151;
+  color: #87b0f0;
   margin-bottom: 2rem;
 }
 
 .boton-iniciar {
   padding: 0.75rem 2rem;
   font-size: 1.1rem;
-  background-color: #2563eb;
+  background-color: #2b3e67;
   color: white;
   border: none;
   border-radius: 8px;
@@ -39,6 +39,6 @@
 }
 
 .boton-iniciar:hover {
-  background-color: #1e40af;
+  background-color: #21273b;
 }
 

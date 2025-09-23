@@ -7,9 +7,9 @@ function Bienvenida() {
   const navigate = useNavigate();
 
   const iniciarApp = () => {
-    const token = localStorage.getItem('token');
-    navigate(token ? '/app' : '/login'); // ✅ Redirige según autenticación
-  };
+  navigate('/login'); // ✅ Siempre lleva al login
+};
+
 
   return (
     <div className="bienvenida-container">

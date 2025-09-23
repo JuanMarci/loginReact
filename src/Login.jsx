@@ -31,7 +31,7 @@ function Login({ setUsuarioAutenticado }) {
         localStorage.setItem('token', respuesta.token || 'token-falso'); // ✅ guarda el token
         setUsuarioAutenticado(true); // ✅ actualiza el estado global
         setMensaje('✅ Inicio de sesión exitoso. ¡Bienvenido!');
-        navigate('/'); // ✅ redirige al conversor
+        navigate('/app'); // ✅ redirige al conversor
       } else {
         setMensaje('❌ Usuario o clave incorrectos');
       }

@@ -20,8 +20,7 @@ function App() {
         <Route
           path="/"
           element={
-            usuarioAutenticado ? <Navigate to="/app" /> : <Bienvenida />
-          }
+            <Bienvenida />}     
         />
 
         {/* ✅ Ruta protegida para la app */}
