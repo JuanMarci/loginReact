@@ -5,8 +5,9 @@
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background: linear-gradient(to bottom right, #435071, #26313f);
-  font-family: 'montserrat', sans-serif;
+  background: linear-gradient(to bottom right, #f0f4ff, #dbeafe);
+  font-family: 'Segoe UI', sans-serif;
+  padding: 2rem;
 }
 
 .logo-bienvenida {
@@ -14,11 +15,22 @@
   margin-bottom: 1rem;
 }
 
-.boton-iniciar {
-  margin-top: 2rem;
-  padding: 0.75rem 2rem;
+.titulo-bienvenida {
+  font-size: 2rem; /* Más pequeño que el h1 por defecto */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo-bienvenida {
   font-size: 1.2rem;
-  background-color: #305094;
+  color: #374151;
+  margin-bottom: 2rem;
+}
+
+.boton-iniciar {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  background-color: #2563eb;
   color: white;
   border: none;
   border-radius: 8px;
@@ -27,9 +39,6 @@
 }
 
 .boton-iniciar:hover {
-  background-color: #1e2439;
+  background-color: #1e40af;
 }
-.titulo-bienvenida {
-  font-size: 1.5rem; /* Puedes probar con 1.5rem, 24px, etc. */
-  font-weight: 600;
-}
+

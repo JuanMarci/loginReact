@@ -6,13 +6,6 @@ import './Bienvenida.css';
 function Bienvenida() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      navigate('/app'); // ✅ Redirige automáticamente si ya está autenticado
-    }
-  }, []);
-
   const iniciarApp = () => {
     const token = localStorage.getItem('token');
     navigate(token ? '/app' : '/login'); // ✅ Redirige según autenticación

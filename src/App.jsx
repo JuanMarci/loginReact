@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import SpeaklyApp from './Speakly.jsx';
 import Login from './Login.jsx';
 import Registro from './Registro.jsx';
-import Bienvenida from './Bienvenida.jsx'; // ✅ Importa el componente
+import Bienvenida from './Bienvenida.jsx';
 
 function App() {
   const [usuarioAutenticado, setUsuarioAutenticado] = useState(false);
@@ -16,8 +16,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* ✅ Página de bienvenida */}
-        <Route path="/" element={<Bienvenida />} />
+        {/* ✅ Página de bienvenida con redirección si ya está autenticado */}
+        <Route
+          path="/"
+          element={
+            usuarioAutenticado ? <Navigate to="/app" /> : <Bienvenida />
+          }
+        />
 
         {/* ✅ Ruta protegida para la app */}
         <Route
@@ -42,6 +47,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
