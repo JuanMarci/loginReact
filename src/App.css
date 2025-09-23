@@ -180,9 +180,15 @@ body {
   height: 90px;
   max-width: 100%;
 }
+.contenedor-cierre {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
 .boton-cerrar-sesion {
-  padding: 0.4rem 0.8rem;
-  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
   background-color: #f3f4f6;
   color: #374151;
   border: 1px solid #d1d5db;

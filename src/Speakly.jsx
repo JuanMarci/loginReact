@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
-import Speakly from './Speakly';
 import speaklyLogo from './assets/speakly-logo.svg';
 import { generatePDF } from './utils/generatePDF';
 import { generateWord } from './utils/generateWord';
@@ -61,10 +60,11 @@ function SpeaklyApp() {
   }
 
   function cerrarSesion() {
-    localStorage.removeItem('token'); // ✅ Elimina el token
-    navigate('/'); // ✅ Redirige a la bienvenida
-    window.location.reload(); // ✅ Recarga para actualizar estado
-  }
+  alert("Gracias por usar Speakly 👋");
+  localStorage.removeItem('token');
+  navigate('/');
+  window.location.reload();
+}
 
   return (
     <div className="contenedor-speakly">
@@ -74,9 +74,6 @@ function SpeaklyApp() {
           alt="Logo de Speakly"
           className="logo-speakly"
         />
-        <button className="boton-cerrar-sesion" onClick={cerrarSesion}>
-          🔒 Cerrar sesión
-        </button>
       </header>
 
       <section>
@@ -111,16 +108,10 @@ function SpeaklyApp() {
           <div className="vista-documento">
             <h2>Documento transcrito</h2>
             <p>{vozAtexto}</p>
-
             <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
               <button onClick={() => generatePDF(vozAtexto)}>📄 Exportar PDF</button>
               <button onClick={() => generateWord(vozAtexto)}>📝 Exportar Word</button>
-
-              {/* ✅ Botón de cerrar sesión */}
-            <button className="boton-cerrar-sesion" onClick={cerrarSesion}>
-              🔒 Cerrar sesión
-            </button>
-          </div>
+            </div>
           </div>
         ) : (
           <>
@@ -137,11 +128,19 @@ function SpeaklyApp() {
           </>
         )}
       </section>
+
+      {/* ✅ Botón de cerrar sesión al final */}
+      <div className="contenedor-cierre">
+        <button className="boton-cerrar-sesion" onClick={cerrarSesion}>
+          🔒 Cerrar sesión
+        </button>
+      </div>
     </div>
   );
 }
 
 export default SpeaklyApp;
+
 
 
 
