@@ -115,7 +115,12 @@ function SpeaklyApp() {
             <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
               <button onClick={() => generatePDF(vozAtexto)}>📄 Exportar PDF</button>
               <button onClick={() => generateWord(vozAtexto)}>📝 Exportar Word</button>
-            </div>
+
+              {/* ✅ Botón de cerrar sesión */}
+            <button className="boton-cerrar-sesion" onClick={cerrarSesion}>
+              🔒 Cerrar sesión
+            </button>
+          </div>
           </div>
         ) : (
           <>

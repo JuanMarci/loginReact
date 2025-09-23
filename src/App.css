@@ -181,22 +181,22 @@ body {
   max-width: 100%;
 }
 .boton-cerrar-sesion {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #ef4444;
-  color: white;
-  border: none;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9rem;
   transition: background-color 0.3s ease;
 }
 
 .boton-cerrar-sesion:hover {
-  background-color: #b91c1c;
+  background-color: #e5e7eb;
+  border-color: #9ca3af;
+  color: #111827;
 }
+
 
 
 
