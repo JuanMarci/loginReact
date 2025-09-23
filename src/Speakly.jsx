@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
 import Speakly from './Speakly';
 import speaklyLogo from './assets/speakly-logo.svg';
@@ -12,6 +13,7 @@ function SpeaklyApp() {
   const [vistaDocumento, setVistaDocumento] = useState(false);
 
   const recognitionRef = useRef(null);
+  const navigate = useNavigate();
 
   function cambiarTextoAvoz(evento) {
     setTextoAvoz(evento.target.value);
@@ -58,6 +60,12 @@ function SpeaklyApp() {
     navigator.clipboard.writeText(vozAtexto);
   }
 
+  function cerrarSesion() {
+    localStorage.removeItem('token'); // ✅ Elimina el token
+    navigate('/'); // ✅ Redirige a la bienvenida
+    window.location.reload(); // ✅ Recarga para actualizar estado
+  }
+
   return (
     <div className="contenedor-speakly">
       <header className="encabezado-speakly">
@@ -66,6 +74,9 @@ function SpeaklyApp() {
           alt="Logo de Speakly"
           className="logo-speakly"
         />
+        <button className="boton-cerrar-sesion" onClick={cerrarSesion}>
+          🔒 Cerrar sesión
+        </button>
       </header>
 
       <section>
@@ -101,17 +112,9 @@ function SpeaklyApp() {
             <h2>Documento transcrito</h2>
             <p>{vozAtexto}</p>
 
-            {/* ✅ Botones de exportación */}
             <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
-              <button onClick={() => {
-                console.log("📄 Exportando PDF...");
-                generatePDF(vozAtexto);
-              }}>📄 Exportar PDF</button>
-
-              <button onClick={() => {
-                console.log("📝 Exportando Word...");
-                generateWord(vozAtexto);
-              }}>📝 Exportar Word</button>
+              <button onClick={() => generatePDF(vozAtexto)}>📄 Exportar PDF</button>
+              <button onClick={() => generateWord(vozAtexto)}>📝 Exportar Word</button>
             </div>
           </div>
         ) : (
@@ -122,18 +125,9 @@ function SpeaklyApp() {
               placeholder="Tu dictado aparecerá aquí..."
               rows={15}
             />
-
-            {/* ✅ Botones de exportación */}
             <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
-              <button onClick={() => {
-                console.log("📄 Exportando PDF...");
-                generatePDF(vozAtexto);
-              }}>📄 Exportar PDF</button>
-
-              <button onClick={() => {
-                console.log("📝 Exportando Word...");
-                generateWord(vozAtexto);
-              }}>📝 Exportar Word</button>
+              <button onClick={() => generatePDF(vozAtexto)}>📄 Exportar PDF</button>
+              <button onClick={() => generateWord(vozAtexto)}>📝 Exportar Word</button>
             </div>
           </>
         )}
@@ -143,6 +137,7 @@ function SpeaklyApp() {
 }
 
 export default SpeaklyApp;
+
 
 
 
